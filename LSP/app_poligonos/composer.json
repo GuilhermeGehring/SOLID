@@ -1,10 +1,5 @@
 {
-    "name": "vscode/app_etl",
-    "autoload": {
-        "psr-4": {
-            "src\\" : "src/"
-        }
-    },
+    "name": "guilherme/app_poligonos",
     "authors": [
         {
             "name": "Guilherme Gehring",

@@ -1,7 +1,7 @@
 <?php
 
+use App\Item;
 use PHPUnit\Framework\TestCase;
-use src\Item;
 
 class ItemTest extends TestCase
 {
