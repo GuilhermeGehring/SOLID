@@ -1,10 +1,9 @@
 <?php
 
-namespace src;
+namespace App;
 
 class Item
 {
-
     private $descricao;
     private $valor;
 
@@ -36,7 +35,7 @@ class Item
 
     public function itemValido()
     {
-        if ($this->descricao == '' || $this->valor <= 0) {
+        if ($this->item == '' || $this->valor <= 0) {
             return false;
         }
 

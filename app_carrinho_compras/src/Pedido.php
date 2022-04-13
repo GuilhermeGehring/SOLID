@@ -1,58 +1,42 @@
 <?php
 
-namespace src;
+namespace App;
 
-class CarrinhoCompra {
-    
-    //atributos
-    private $itens;
+class Pedido
+{
     private $status;
-    private $valorTotal;
+    private $carrinhoCompra;
+    private $valorPedido;
 
-    //métodos
-    public function __construct() {
-        $this->itens = [];
+    public function __construct()
+    {
         $this->status = 'aberto';
-        $this->valorTotal = 0;
+        $this->carrinhoCompra = new CarrinhoCompra();
+        $this->valorPedido = 0;
     }
 
-    public function exibirItens() {
-        return $this->itens;
-    }
-
-    public function adicionarItem(string $item, float $valor) {
-        array_push($this->itens, ["item" => $item, "valor" => $valor]);
-        $this->valorTotal += $valor;
-        return true;
-    }
-
-    public function exibirValorTotal() {
-        return $this->valorTotal;
-    }
-
-    public function exibirStatus() {
+    public function getStatus()
+    {
         return $this->status;
     }
 
-    public function confirmarPedido() {
+    public function getCarrinhoCompra()
+    {
+        return $this->carrinhoCompra;
+    }
 
-        if($this->validarCarrinho()) {
-            $this->status = 'confirmado';
-            $this->enviarEmailConfirmacao();
+    public function setStatus(string $status)
+    {
+        $this->status = $status;
+    }
 
+    public function confirmar()
+    {
+        if ($this->carrinhoCompra->validarCarrinho()) {
+            $this->setStatus('confirmado');
             return true;
         }
 
         return false;
     }
-
-    public function enviarEmailConfirmacao() {
-        echo '<br/>.... envia e-mail de confirmação ...<br/>';
-    }
-
-    public function validarCarrinho() {
-        return count($this->itens) > 0;
-    }
-    
-
 }
