@@ -1,0 +1,15 @@
+{
+    "name": "vscode/app_etl",
+    "autoload": {
+        "psr-4": {
+            "src\\" : "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Guilherme Gehring",
+            "email": "guilherme.gehring@gmail.com"
+        }
+    ],
+    "require": {}
+}
